@@ -5,3 +5,5 @@ target
 google-analytics-node.iml
 deploy.sh
 .DS_Store
+.gitlab-ci.yml
+gitlab-ci
