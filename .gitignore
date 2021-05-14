@@ -1,0 +1,7 @@
+build
+INTERNAL.md
+target
+.idea
+google-analytics-node.iml
+deploy.sh
+.DS_Store
