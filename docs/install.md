@@ -1,6 +1,8 @@
 
 # Install the Google Analytics Node
 
+To install Tomcat see the [ForgeRock Quick Start installation guide](https://backstage.forgerock.com/docs/am/6.5/quick-start-guide/)
+
 ### Local Tomcat
 
 Copy the file `google-analytics-node-6.0.0.jar` 
@@ -16,8 +18,6 @@ startup.sh
 
 ### Local Docker 
 
-[See here for full instructions](https://gitlab.nonprod.dwpcloud.uk/idt/forgerock/developer-guidelines/-/wikis/Configuration-of-am#building-custom-nodes)
-
 If you are already running AM in docker, you can copy the jar file with:
 
 ```
@@ -27,9 +27,3 @@ docker cp /Users/<you>/dev/forgerock-google-analytics-node/target/google-analyti
 ...where _docker-compose_am_1_ is the docker container name
 
 Then restart the docker image.
-
-TODO: how to set the GOOGLE_ANALYTICS_URL environment variable ?
-
-### Deployed Systems
-
-[See here](https://gitlab.nonprod.dwpcloud.uk/idt/forgerock/developer-guidelines/-/wikis/Configuration-of-am#building-custom-nodes)

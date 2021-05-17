@@ -1,22 +1,27 @@
 
 # Build the Google Analytics Node
 
-https://gitlab.nonprod.dwpcloud.uk/idt/forgerock/developer-guidelines/-/wikis/Configuration-of-AM-and-working-with-custom-nodes
-... how to setup maven - see the `Building Custom Nodes` section
+See this link
+[Preparing for Development](https://backstage.forgerock.com/docs/am/6.5/auth-nodes/#preparing-for-nodes)
+for how to setup your local maven environment to build authentication nodes
 
 Once maven is setup, to build
 
 `mvn clean install`
 
-https://backstage.forgerock.com/docs/am/6.5/auth-nodes/
+Some useful links:
+
+[Authentication Node Development Guide](https://backstage.forgerock.com/docs/am/6.5/auth-nodes/)
  ... ForgeRock documentation
 
-https://backstage.forgerock.com/docs/am/6.5/auth-nodes/#node-upgrade
+[Upgrading Nodes and Configuration Changes](https://backstage.forgerock.com/docs/am/6.5/auth-nodes/#node-upgrade)
  ... updating the custom node - this is a common cause of failure 
 
 ### Local Tomcat deployment
 
-Create a script `deploy.sh` with the following:
+To install Tomcat see the [ForgeRock Quick Start installation guide](https://backstage.forgerock.com/docs/am/6.5/quick-start-guide/)
+
+To deploy the authentication node, create a script `deploy.sh` with the following:
 
 ```
 cd /Users/<you>/dev/forgerock-google-analytics-node/target
@@ -34,11 +39,6 @@ sh startup.sh
  - installed the OpenAM webapp as `openam`
  - everything in a `/dev` directory
  - shutdown Tomcat first using `shutdown.sh`
- 
-See here https://gitlab.nonprod.dwpcloud.uk/idt/forgerock/developer-guidelines/-/wikis/Running-AM-and-IDM-locally
- ... for how to install Tomcat and AM
-
-[ForgeRock Quick Start installation guide](https://backstage.forgerock.com/docs/am/6.5/quick-start-guide/)
 
 ### Local Tomcat debugging
 
