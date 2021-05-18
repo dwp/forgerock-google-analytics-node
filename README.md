@@ -6,8 +6,8 @@ to send events to Google.
 
 Read the [Measurement Protocol documentation](https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters) for further information.
 
-Check these links to [install](./docs/install.md) 
-the node or [build](./docs/build.md) it yourself 
+Check these links to [install](docs/install.md) 
+the node or [build](docs/build.md) it yourself 
 
 ## Configuration
 
@@ -99,7 +99,7 @@ the variable name should be prefixed with `googleAnalytics_`, for example
 ```
 sharedState.put( "googleAnalytics_cid", deviceCookie );
 sharedState.put( "googleAnalytics_uid", userGUID );
-sharedState.put( "googleAnalytics_cd5", "pip" );
+sharedState.put( "googleAnalytics_cd5", "my_value" ); // set custom dimension 5
 ```
 
 #### Exceptions
@@ -116,8 +116,6 @@ Some parameters cannot be preset in this manner:
 
 Anonymously identifies a particular user, device, or browser instance.
 Ideally this should be a persistent cookie stored on the **device**
-
-For the telephony channel this can be a hash of the user phone number
 
 If _googleAnalytics_cid_ is not set in _sharedState_, a random cid will be generated for each usage of a tree
 
@@ -138,11 +136,6 @@ Analytics uses this to determine the approximate geographic origin of the reques
 
 If geoid is provided then this is ignored
 
-For telephony this will not be a usable value as the request will
-be from an API
-
-TODO: how to handle this situation!
-
 ### geoid - Geographical Override
 
 `1006964` - the code for Norwich
@@ -151,7 +144,7 @@ The geoid can be set with:
 
 `sharedState.put( "googleAnalytics_geoid", '1006964' );`
 
-[See here for further information about the geoid](./docs/geoid.md)
+[See here for further information about the geoid](docs/geoid.md)
 
 ### ua - User Agent
 
@@ -172,23 +165,6 @@ By default this will be send as a UNIX timestamp, e.g. `1609847671574`.
 
 There is also the option to send this in simple date format, i.e. `yyyymmddhhmmss`. To send the timestamp in simple format,
 set the following in `sharedState`: `sharedState.put("googleAnalytics_timestampFormat","simple");`
-
-### General Analytics custom dimensions for DTH
-
-PII data (e.g. name, DoB, postcode, phone number) must not be sent to Google Analytics.
-
-Decision scripts can set the event action and label like this:
-
-``` 
-sharedState.put( "kbvOutcome", ok ? "pass" : "fail" );
-sharedState.put( "kbvLabel", "kbvSortCode|incorrect" );
-```
-
-These parameters can then be dereferenced in the node configuration:
-
-Set the Event action value to `{{kbvOutcome}}`.
-
-Set the Event label value to `{{kbvLabel}}`.
 
 ### Debugging
 
